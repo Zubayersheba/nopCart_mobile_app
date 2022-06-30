@@ -24,11 +24,10 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import GeneratedUtils;
 
 
-@DisplayName("nopcartversion2")
-public class addToCartTestCaseImplementation implements ExceptionsReporter {
+@DisplayName("addToCart")
+public class Checkout implements ExceptionsReporter {
   public static AndroidDriver<? extends MobileElement> driver;
 
   @BeforeAll
@@ -36,7 +35,7 @@ public class addToCartTestCaseImplementation implements ExceptionsReporter {
     driver = new AndroidDriver<>("fs7Aqt1fkyX50ldF_72aDAFaxi3wsFJ9fOzUrYAjZc8", getCapabilities(), "Md. Zubayer Alam Shuvo");
   }
 
-  @DisplayName("nopcartversion2")
+  @DisplayName("checkout")
   @ParameterizedTest
   @MethodSource("provideParameters")
   void execute() throws Exception {
@@ -46,70 +45,76 @@ public class addToCartTestCaseImplementation implements ExceptionsReporter {
     boolean booleanResult;
 
     // 1. Reset App
+    
     GeneratedUtils.sleep(500);
     driver.resetApp();
 
-    // 2. Make a Swipe to choose electronics category
+    // 2. Click 'NopStation Cart'
     GeneratedUtils.sleep(500);
-    (new TouchAction(driver)).press(PointOption.point(743,1013))
-        				.waitAction(WaitOptions.waitOptions(Duration.ofMillis(300)))
-        				.moveTo(PointOption.point(282,1031)).release().perform();
-
-    // 3. Make a Swipe 
-    GeneratedUtils.sleep(500);
-    (new TouchAction(driver)).press(PointOption.point(868,1028))
-        				.waitAction(WaitOptions.waitOptions(Duration.ofMillis(300)))
-        				.moveTo(PointOption.point(581,1028)).release().perform();
-
-    // 4. Click electronics category
-    GeneratedUtils.sleep(500);
-    by = By.xpath("//android.view.ViewGroup[3]/android.widget.FrameLayout/android.widget.ImageView");
+    by = By.xpath("//android.widget.ImageButton[@content-desc = 'NopStation Cart']");
     driver.findElement(by).click();
 
-    // 5. Make a Swipe gesture 
+    // 3. Click 'Electronics'
     GeneratedUtils.sleep(500);
-    (new TouchAction(driver)).press(PointOption.point(543,1321))
-        				.waitAction(WaitOptions.waitOptions(Duration.ofMillis(300)))
-        				.moveTo(PointOption.point(526,923)).release().perform();
-
-    // 6. Make a Swipe gesture
-    GeneratedUtils.sleep(500);
-    (new TouchAction(driver)).press(PointOption.point(543,1385))
-        				.waitAction(WaitOptions.waitOptions(Duration.ofMillis(300)))
-        				.moveTo(PointOption.point(526,810)).release().perform();
-
-    // 7. Click Nokia Lumia 1020
-    GeneratedUtils.sleep(500);
-    by = By.xpath("//android.widget.FrameLayout[1]/android.view.ViewGroup/android.widget.ImageView[1]");
+    by = By.xpath("//android.widget.TextView[@text = 'Electronics']");
     driver.findElement(by).click();
 
-    // 8. Make a Swipe 
+    // 4. Make a Swipe gesture
     GeneratedUtils.sleep(500);
-    (new TouchAction(driver)).press(PointOption.point(534,1530))
-        				.waitAction(WaitOptions.waitOptions(Duration.ofMillis(300)))
-        				.moveTo(PointOption.point(526,1051)).release().perform();
+    (new TouchAction(driver)).press(PointOption.point(502,1475))
+        				.waitAction(WaitOptions.waitOptions(Duration.ofMillis(10000)))
+        				.moveTo(PointOption.point(505,1127)).release().perform();
 
-    // 9. Click 'Small'
+    // 5. Make a Swipe
+    GeneratedUtils.sleep(500);
+    (new TouchAction(driver)).press(PointOption.point(537,1681))
+        				.waitAction(WaitOptions.waitOptions(Duration.ofMillis(300)))
+        				.moveTo(PointOption.point(531,938)).release().perform();
+
+    // 6. Make a Swipe 
+    GeneratedUtils.sleep(500);
+    (new TouchAction(driver)).press(PointOption.point(531,1678))
+        				.waitAction(WaitOptions.waitOptions(Duration.ofMillis(300)))
+        				.moveTo(PointOption.point(531,1074)).release().perform();
+
+    // 7. Make a Swipe 
+    GeneratedUtils.sleep(500);
+    (new TouchAction(driver)).press(PointOption.point(531,1074))
+        				.waitAction(WaitOptions.waitOptions(Duration.ofMillis(300)))
+        				.moveTo(PointOption.point(540,1490)).release().perform();
+
+    // 8. Click 'nokialumia'
+    GeneratedUtils.sleep(500);
+    by = By.xpath("//androidx.drawerlayout.widget.DrawerLayout/androidx.recyclerview.widget.RecyclerView[1]/android.widget.FrameLayout[1]//android.widget.ImageView[1]");
+    driver.findElement(by).click();
+
+    // 9. Make a Swipe 
+    GeneratedUtils.sleep(500);
+    (new TouchAction(driver)).press(PointOption.point(505,1626))
+        				.waitAction(WaitOptions.waitOptions(Duration.ofMillis(10000)))
+        				.moveTo(PointOption.point(497,1176)).release().perform();
+
+    // 10. Click 'Small'
     GeneratedUtils.sleep(500);
     by = By.xpath("//android.widget.TextView[@text = 'Small']");
     driver.findElement(by).click();
 
-    // 10. Click 'Large' radio button
+    // 11. Click 'Large'
     GeneratedUtils.sleep(500);
     by = By.xpath("//android.widget.RadioButton[@text = 'Large ']");
     driver.findElement(by).click();
 
-    // 11. Click 'Done' to choose large option
+    // 12. Click 'Done'
     GeneratedUtils.sleep(500);
     by = By.id("com.nopstation.nopcommerce.nopstationcart:id/tvDone");
     driver.findElement(by).click();
 
-    // 12. Click '+' to increment the value
+    // 13. Click '+'
     GeneratedUtils.sleep(500);
     by = By.id("com.nopstation.nopcommerce.nopstationcart:id/btnPlus");
     driver.findElement(by).click();
 
-    // 13. Click 'ADD TO CART'
+    // 14. Click 'ADD TO CART'
     GeneratedUtils.sleep(500);
     by = By.id("com.nopstation.nopcommerce.nopstationcart:id/btnAddToCart");
     driver.findElement(by).click();
