@@ -142,9 +142,9 @@ public class Checkout implements ExceptionsReporter {
     capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.ANDROID);
     capabilities.setCapability(MobileCapabilityType.UDID, "73a9ccfb0405");
     capabilities.setCapability(CapabilityType.BROWSER_NAME, "");
-    capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "YOUR_APP_PACKAGE");
-    capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "YOUR_APP_ACTIVITY");
-    capabilities.setCapability(MobileCapabilityType.APP, "APP_FILE_PATH");
+   capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "nopCart");
+    capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "nopCart.java");
+    capabilities.setCapability(MobileCapabilityType.APP, "c://Downloads");
     return capabilities;
   }
 }
